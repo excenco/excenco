@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>ExcenCo. Institute of Professionals | Global Learning Platform</title>
+    
+    <!-- Meta SEO & Open Graph for Crawlers -->
+    <meta name="description" content="ExcenCo. Institute of Professionals, under Universal Grants of Institution (TXD:06848-06119), is a global learning and professional development platform associated with Imperial College London and sponsored by the University of Adelaide.">
+    <meta name="keywords" content="ExcenCo, Institute of Professionals, Imperial College London, University of Adelaide, Dynamic Features University of London, Universal Grants of Institution, Global Learning">
+
+    <!-- SEO Schema.org FAQ Structured Data (Fully Indexed by Googlebot) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are we a part of Imperial College London?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Established in 2026, our institution was previously known as Dynamic Features University of London (UOL). Effective September 18, 2026, we proudly operate under Imperial College London as our parent and mother company, with the University of Adelaide serving as our official institutional sponsor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I enroll in a course at ExcenCo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can enroll in our programs by visiting our official Course Enrollment Form section on this page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the accepted payment methods?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept secure payments via Visa, Mastercard, PayPal, Binance, Bank Transfers, and bKash."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I sign in with my Student ID?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can securely sign in using your assigned official Student ID and password in our Student Login Index portal section."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I verify my certificate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Verify your official course completion certificate authenticity under the Verify Certificate section using secure code standard TF.990 x509."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What prizes can I win in final course exams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Top ranking students win valuable rewards: 1st place receives a PC built to their interests up to $4000, 2nd place a laptop up to $2000, 3rd place an iPad up to $1000, 4th-10th a full fee refund, and 11th-20th a half fee refund, plus official certificates."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dfu: {
+                            dark: '#030712',
+                            card: '#0B0F19',
+                            border: '#1E293B',
+                            navy: '#00205B',
+                            royalBlue: '#0B52CE',
+                            blue: '#2563EB',
+                            lightBlue: '#38BDF8',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow-pulse': 'glowPulse 3s infinite alternate',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glowPulse: {
+                            '0%': { boxShadow: '0 0 15px rgba(37, 99, 235, 0.2)' },
+                            '100%': { boxShadow: '0 0 35px rgba(56, 189, 248, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
+        
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card-3d-tilt {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        @media (min-width: 768px) {
+            .card-3d-tilt:hover {
+                transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
+                border-color: rgba(37, 99, 235, 0.8);
+                box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.35);
+            }
+        }
+
+        /* 3D Social Media Buttons */
+        .social-3d-btn {
+            position: relative;
+            perspective: 1000px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .social-3d-inner {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.3);
+        }
+        .social-3d-btn:hover .social-3d-inner {
+            transform: translateY(-10px) rotateX(15deg) rotateY(-10deg) scale(1.08);
+            box-shadow: 0 20px 35px -5px rgba(37, 99, 235, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Dark Theme Modern Trusted Section */
+        .modern-trusted {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 70px 0;
+            background: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.15), transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.12), transparent 40%),
+                        #030712;
+            border-top: 1px solid #1E293B;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .glow-one {
+            top: -180px;
+            left: 5%;
+            background: #2563EB;
+        }
+
+        .glow-two {
+            right: 5%;
+            bottom: -200px;
+            background: #38BDF8;
+        }
+
+        .trusted-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .trusted-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            padding: 0 20px;
+        }
+
+        .trusted-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 13px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 999px;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #38BDF8;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2), 0 0 12px rgba(34, 197, 94, 0.8);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        .trusted-header h2 {
+            margin: 18px 0 12px;
+            font-size: clamp(28px, 5vw, 52px);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+        }
+
+        .trusted-header h2 span {
+            background: linear-gradient(90deg, #60A5FA, #38BDF8, #818CF8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .trusted-header p {
+            max-width: 580px;
+            margin: 0 auto;
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .logo-viewport {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 15px 0;
+        }
+
+        .modern-logo-track {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+            animation: modernLogoScroll 35s linear infinite;
+        }
+
+        .modern-logo-group {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .modern-logo-card {
+            position: relative;
+            width: 160px;
+            height: 100px;
+            margin-right: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(11, 15, 25, 0.85));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .modern-logo-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 15%;
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+        }
+
+        .modern-logo-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(37, 99, 235, 0.25);
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(3, 7, 18, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-icon span {
+            display: none;
+            font-size: 16px;
+            font-weight: 800;
+            color: #38BDF8;
+        }
+
+        .text-icon {
+            font-size: 14px;
+            font-weight: 900;
+            color: #38BDF8;
+        }
+
+        .modern-logo-card strong {
+            color: #E2E8F0;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .fade-left, .fade-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(90deg, #030712, rgba(3, 7, 18, 0));
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(270deg, #030712, rgba(3, 7, 18, 0));
+        }
+
+        @keyframes modernLogoScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .logo-viewport:hover .modern-logo-track {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+            .modern-trusted { padding: 45px 0; }
+            .trusted-header { margin-bottom: 25px; }
+            .modern-logo-card { width: 135px; height: 90px; margin-right: 12px; border-radius: 15px; }
+            .logo-icon { width: 36px; height: 36px; }
+            .logo-icon img { width: 24px; height: 24px; }
+            .fade-left, .fade-right { width: 50px; }
+            .modern-logo-track { animation-duration: 25s; }
+        }
+    </style>
+</head>
+<body class="bg-dfu-dark text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Hidden Semantic SEO Optimized FAQ Container for Google Ranking -->
+    <div style="display:none;" aria-hidden="true">
+        <h1>ExcenCo. Institute of Professionals Official Affiliation & FAQ</h1>
+        <article>
+            <h2>Are we a part of Imperial College London?</h2>
+            <p>Yes. Established in 2026, our institution was previously known as Dynamic Features University of London (UOL). Effective September 18, 2026, we proudly operate under Imperial College London as our parent and mother company, with the University of Adelaide serving as our official institutional sponsor.</p>
+        </article>
+        <article>
+            <h2>How do I enroll in a course?</h2>
+            <p>You can enroll in our programs by visiting our official Course Enrollment Form section on this page.</p>
+        </article>
+        <article>
+            <h2>What are the accepted payment methods?</h2>
+            <p>We accept secure payments via Visa, Mastercard, PayPal, Binance, Bank Transfers, and bKash.</p>
+        </article>
+        <article>
+            <h2>How do I sign in with my Student ID?</h2>
+            <p>You can securely sign in using your assigned official Student ID and password in our Student Login Index portal section.</p>
+        </article>
+        <article>
+            <h2>How can I verify my certificate?</h2>
+            <p>Verify your official course completion certificate authenticity under the Verify Certificate section using secure code standard TF.990 x509.</p>
+        </article>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-50 bg-[#030712] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-36 h-14 rounded-xl overflow-hidden shadow-2xl animate-glow-pulse border border-blue-500/30 bg-slate-950 p-1 flex items-center justify-center">
+            <img 
+                src="https://pbs.twimg.com/profile_banners/2100650504716222464/1789669241/1500x500" 
+                alt="ExcenCo. Logo" 
+                class="w-full h-full object-cover"
+            />
+        </div>
+        <p class="mt-4 text-xs tracking-widest uppercase text-blue-400 font-semibold text-center animate-pulse">ExcenCo.<br><span class="text-[10px] text-slate-300">Institute of Professionals</span></p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 glass-panel border-b border-dfu-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo & Identity -->
+                <a href="#hero" class="flex items-center space-x-3 group flex-shrink-0 min-h-[44px] items-center">
+                    <div class="w-16 h-10 sm:w-20 sm:h-12 rounded-xl overflow-hidden shadow-lg shadow-blue-900/40 group-hover:scale-105 transition-transform duration-300 border border-blue-500/20 flex-shrink-0 bg-slate-950 p-0.5 flex items-center justify-center">
+                        <img 
+                            src="https://pbs.twimg.com/profile_banners/2100650504716222464/1789669241/1500x500" 
+                            alt="ExcenCo. Logo" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm sm:text-base font-extrabold text-white tracking-tight leading-none">ExcenCo.</span>
+                        <span class="text-[10px] sm:text-xs font-semibold text-blue-400 tracking-wide mt-0.5">Institute of Professionals</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#catalog" class="text-sm font-medium text-slate-300 hover:text-white transition-colors py-1">Courses</a>
+                    <a href="#verification" class="text-sm font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1.5 transition-colors py-1">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> Verify Certificate
+                    </a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-white transition-colors py-1">Contact Us</a>
+                    <a href="#login" class="text-sm font-medium text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+                        <i data-lucide="log-in" class="w-4 h-4 text-blue-400"></i> Sign In
+                    </a>
+                    <a href="#enrollment" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 hover:from-blue-600 hover:to-blue-400 shadow-lg shadow-blue-900/40 transition-all hover:scale-105 active:scale-95">
+                        Enroll Now
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" aria-label="Toggle Menu" class="p-2.5 text-slate-300 hover:text-white focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A0F1D]/95 backdrop-blur-xl border-b border-dfu-border px-5 pt-4 pb-6 space-y-3 shadow-2xl">
+            <a href="#catalog" class="mobile-link block py-3 text-slate-200 font-medium text-base border-b border-slate-800/60">Courses</a>
+            <a href="#verification" class="mobile-link block py-3 text-blue-400 font-medium text-base border-b border-slate-800/60 flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> Verify Certificate
+            </a>
+            <a href="#contact" class="mobile-link block py-3 text-slate-200 font-medium text-base border-b border-slate-800/60">Contact Us</a>
+            <a href="#login" class="mobile-link block py-3 text-blue-400 font-medium text-base border-b border-slate-800/60 flex items-center gap-2">
+                <i data-lucide="log-in" class="w-4 h-4"></i> Sign In
+            </a>
+            <div class="pt-2">
+                <a href="#enrollment" class="mobile-link block w-full text-center py-3.5 bg-blue-600 text-white rounded-xl font-semibold text-base shadow-lg shadow-blue-600/30">Enroll Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative overflow-hidden pt-10 pb-16 lg:pt-20 lg:pb-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/40 text-blue-300 text-xs font-semibold uppercase tracking-wider animate-bounce">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-400"></i> Welcome to ExcenCo. Institute of Professionals
+                        </div>
+                        
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                            Build Practical, Career-Ready Skills with <br />
+                            <span class="bg-gradient-to-r from-blue-400 via-blue-200 to-indigo-400 bg-clip-text text-transparent">
+                                Global Exposure ✨
+                            </span>
+                        </h1>
+
+                        <p class="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            ExcenCo. Institute of Professionals, under Universal Grants of Institution (TXD:06848-06119), is a global learning and professional development platform designed to help students build practical, career-ready skills in business, technology, entrepreneurship, leadership, and more.
+                        </p>
+
+                        <p class="text-xs sm:text-sm lg:text-base text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            With connections to renowned institutions such as Imperial College London and sponsored by the University of Adelaide, ExcenCo. provides students with valuable global exposure and learning opportunities.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-600/40 transition-all text-center hover:scale-105 min-h-[48px] flex items-center justify-center">
+                                Explore Our Programs
+                            </a>
+                            <a href="#enrollment" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-200 bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-all flex items-center justify-center gap-2 hover:border-slate-700 min-h-[48px]">
+                                Embark Today <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Interactive 3D Canvas -->
+                    <div class="relative w-full h-[320px] sm:h-[380px] lg:h-[500px] animate-float">
+                        <div id="three-container" class="w-full h-full"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MODERN TRUSTED NETWORK MARQUEE SECTION -->
+        <section class="modern-trusted">
+            <div class="ambient-glow glow-one"></div>
+            <div class="ambient-glow glow-two"></div>
+
+            <div class="trusted-content">
+                <div class="trusted-header">
+                    <div class="trusted-badge">
+                        <span class="badge-dot"></span>
+                        TRUSTED &amp; GLOBAL NETWORK
+                    </div>
+
+                    <h2>
+                        Sponsored &amp;
+                        <span>Trusted By</span>
+                    </h2>
+
+                    <p>
+                        Proudly connected with Imperial College London as our parent network, sponsored by the University of Adelaide, and trusted by global technology partners worldwide.
+                    </p>
+                </div>
+
+                <div class="logo-viewport">
+                    <div class="fade-left"></div>
+                    <div class="fade-right"></div>
+
+                    <div class="modern-logo-track">
+                        <!-- LOGO GROUP 1 -->
+                        <div class="modern-logo-group">
+                            <a href="https://www.imperial.ac.uk" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">ICL</span></div>
+                                <strong>Imperial College</strong>
+                            </a>
+                            <a href="https://www.adelaide.edu.au" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">UoA</span></div>
+                                <strong>Univ. of Adelaide</strong>
+                            </a>
+                            <a href="https://english.pku.edu.cn" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=pku.edu.cn&sz=128" alt="Peking University" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span>P</span></div>
+                                <strong>Peking Univ.</strong>
+                            </a>
+                            <a href="https://www.ibm.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM Careers" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span>IBM</span></div>
+                                <strong>IBM Careers</strong>
+                            </a>
+                            <a href="https://www.unesco.org/en" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">UNESCO</span></div>
+                                <strong>UNESCO</strong>
+                            </a>
+                            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span>G</span></div>
+                                <strong>Google</strong>
+                            </a>
+                            <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span>M</span></div>
+                                <strong>Microsoft</strong>
+                            </a>
+                        </div>
+
+                        <!-- DUPLICATE GROUP FOR SEAMLESS LOOP -->
+                        <div class="modern-logo-group" aria-hidden="true">
+                            <a href="https://www.imperial.ac.uk" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">ICL</span></div>
+                                <strong>Imperial College</strong>
+                            </a>
+                            <a href="https://www.adelaide.edu.au" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">UoA</span></div>
+                                <strong>Univ. of Adelaide</strong>
+                            </a>
+                            <a href="https://english.pku.edu.cn" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=pku.edu.cn&sz=128" alt=""><span>P</span></div>
+                                <strong>Peking Univ.</strong>
+                            </a>
+                            <a href="https://www.ibm.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt=""><span>IBM</span></div>
+                                <strong>IBM Careers</strong>
+                            </a>
+                            <a href="https://www.unesco.org/en" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon text-icon"><span style="display:block;">UNESCO</span></div>
+                                <strong>UNESCO</strong>
+                            </a>
+                            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt=""><span>G</span></div>
+                                <strong>Google</strong>
+                            </a>
+                            <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" class="modern-logo-card">
+                                <div class="logo-icon"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt=""><span>M</span></div>
+                                <strong>Microsoft</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTICS BANNER -->
+        <section class="py-12 bg-slate-950/60 border-b border-dfu-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+                    <div class="p-3 hover:scale-105 transition-transform">
+                        <p class="text-2xl sm:text-3xl font-extrabold text-blue-400">46</p>
+                        <p class="text-[11px] sm:text-sm text-slate-400 font-medium uppercase mt-1">Specialized Courses</p>
+                    </div>
+                    <div class="p-3 hover:scale-105 transition-transform">
+                        <p class="text-2xl sm:text-3xl font-extrabold text-blue-400">Global</p>
+                        <p class="text-[11px] sm:text-sm text-slate-400 font-medium uppercase mt-1">Institutional Links</p>
+                    </div>
+                    <div class="p-3 hover:scale-105 transition-transform">
+                        <p class="text-2xl sm:text-3xl font-extrabold text-blue-400">Practical</p>
+                        <p class="text-[11px] sm:text-sm text-slate-400 font-medium uppercase mt-1">Skill Development</p>
+                    </div>
+                    <div class="p-3 hover:scale-105 transition-transform">
+                        <p class="text-2xl sm:text-3xl font-extrabold text-blue-400">Digital</p>
+                        <p class="text-[11px] sm:text-sm text-slate-400 font-medium uppercase mt-1">Certificate Verification</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSE CATALOG SECTION -->
+        <section id="catalog" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-dfu-border">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3 sm:space-y-4">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Our Certification Programs & Courses</h2>
+                <p class="text-slate-400 text-xs sm:text-base">
+                    Search and filter our complete database of professional certification programs and technical courses.
+                </p>
+            </div>
+
+            <!-- Controls Bar -->
+            <div class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 mb-10 sm:mb-12 space-y-5 sm:space-y-6 shadow-xl">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="md:col-span-2 relative">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search courses..."
+                            class="w-full px-5 py-3.5 pl-12 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm transition-all"
+                        >
+                        <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-3.5"></i>
+                    </div>
+
+                    <div>
+                        <select id="sort-select" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-blue-500 transition-all">
+                            <option value="default">Sort By: Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="free-first">Free Courses First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="category-pills" class="flex flex-wrap gap-2 pt-2 border-t border-slate-800">
+                    <!-- Pills injected by JS -->
+                </div>
+            </div>
+
+            <!-- Course Grid Output -->
+            <div id="course-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Cards Rendered Dynamically -->
+            </div>
+
+            <div id="no-results" class="hidden text-center py-16 text-slate-500">
+                <i data-lucide="book-open" class="w-12 h-12 mx-auto mb-3 text-slate-600"></i>
+                <p class="text-base sm:text-lg">No courses match your search or filter criteria.</p>
+            </div>
+        </section>
+
+        <!-- STUDENT SIGN IN SECTION -->
+        <section id="login" class="py-16 sm:py-20 bg-slate-950/60 border-t border-dfu-border">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="text-center space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/40 text-blue-300 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-blue-400"></i> Student Portal Access
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Student Login Index</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm">
+                        Enter your official Student ID and password to access your course dashboard and academic records.
+                    </p>
+                </div>
+
+                <!-- Login Card -->
+                <div class="bg-dfu-card border border-dfu-border rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden border-blue-500/30">
+                    <div class="flex flex-col items-center text-center space-y-3">
+                        <div class="w-24 h-12 rounded-xl overflow-hidden shadow-xl border border-blue-500/30 bg-slate-950 p-1 flex items-center justify-center">
+                            <img src="https://pbs.twimg.com/profile_banners/2100650504716222464/1789669241/1500x500" alt="ExcenCo. Logo" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <form id="loginForm" class="space-y-5">
+                        <div class="space-y-2">
+                            <label for="studentID" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Student ID</label>
+                            <div class="relative">
+                                <input type="text" id="studentID" name="studentID" placeholder="Enter Student ID" required class="w-full px-4 py-3.5 pl-11 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 transition-all font-mono">
+                                <i data-lucide="user" class="w-4 h-4 text-slate-500 absolute left-4 top-4"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Password</label>
+                            <div class="relative">
+                                <input type="password" id="password" name="password" placeholder="Enter Password" required class="w-full px-4 py-3.5 pl-11 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 transition-all font-mono">
+                                <i data-lucide="key-round" class="w-4 h-4 text-slate-500 absolute left-4 top-4"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 hover:from-blue-600 hover:to-blue-400 shadow-lg shadow-blue-900/40 transition-all text-sm uppercase tracking-wider min-h-[48px]">
+                            Sign In to Portal
+                        </button>
+                    </form>
+
+                    <!-- Feedback & Student Info Display -->
+                    <div id="message" class="hidden text-center text-sm font-bold p-3.5 rounded-xl"></div>
+
+                    <div id="link" class="hidden bg-slate-950/80 border border-blue-800/60 p-4 rounded-xl text-center space-y-2">
+                        <a id="continueLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase rounded-lg shadow-lg tracking-wider transition-all min-h-[44px]">
+                            VISIT COURSE SERVER!!!
+                        </a>
+                    </div>
+
+                    <div id="studentInfo" class="hidden bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-2 text-xs text-slate-300 font-mono overflow-x-auto">
+                        <p><b class="text-white font-sans">Father's Name:</b> <span id="fatherName" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Mother's Name:</b> <span id="motherName" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Nationality:</b> <span id="nationality" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Courses:</b> <span id="courses" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Phone:</b> <span id="phone" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Present Address:</b> <span id="presentAddress" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Permanent Address:</b> <span id="permanentAddress" class="text-blue-400"></span></p>
+                        <p><b class="text-white font-sans">Course Director:</b> <span id="directorName" class="text-amber-400"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE INLINE ENROLLMENT FORM SECTION -->
+        <section id="enrollment" class="py-16 sm:py-20 border-t border-dfu-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="text-center space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/40 text-blue-300 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i> Official Portal Registration
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Course Enrollment Form</h2>
+                    <p class="text-slate-400 text-xs sm:text-base max-w-2xl mx-auto">
+                        Fill out the official registration form directly on this page below to confirm your course enrollment and cohort seat.
+                    </p>
+                </div>
+
+                <!-- Forms.app Embedded Directly In-Page -->
+                <div class="bg-dfu-card border border-dfu-border rounded-3xl p-3 sm:p-6 shadow-2xl overflow-hidden w-full max-w-4xl mx-auto border-blue-500/25">
+                    <div id="formsapp-container" class="w-full h-[2200px] sm:h-[2350px] lg:h-[2400px] rounded-2xl overflow-hidden bg-[#0a0d14]">
+                        <iframe 
+                            id="enrollment-iframe"
+                            data-formsapp-src="https://share.forms.app/form/6aa46b3b78c9b5a5456ca802" 
+                            title="Course Enrollment Form - Made with forms.app"
+                            class="w-full h-full border-0 rounded-xl"
+                            allow="geolocation; microphone; camera"
+                        ></iframe>
+                    </div>
+                    <script src="https://cdn.formsapp.io/embed.js" type="text/javascript" async defer onload="new formsapp('6aa46b3b78c9b5a5456ca802', 'standard', {'width': '100%', 'height': '2400px'}, 'https://share.forms.app');"></script>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAYMENT METHODS SECTION -->
+        <section id="payments" class="py-16 sm:py-20 bg-slate-950/40 border-t border-dfu-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3 sm:space-y-4">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Accepted Payment Methods</h2>
+                    <p class="text-slate-400 text-xs sm:text-base">
+                        Select a payment gateway platform below to visit their official portal for transactions and billing setup.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+                    <!-- Visa -->
+                    <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="credit-card" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">Visa</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+
+                    <!-- Mastercard -->
+                    <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="credit-card" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">Mastercard</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+
+                    <!-- PayPal -->
+                    <a href="https://www.paypal.com/nl/home" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="wallet" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">PayPal</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+
+                    <!-- Binance -->
+                    <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="coins" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">Binance</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+
+                    <!-- Bank Transfer -->
+                    <a href="https://www.hsbc.com" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">Bank Transfer</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+
+                    <!-- bKash -->
+                    <a href="https://www.bkash.com" target="_blank" rel="noopener noreferrer" class="bg-dfu-card border border-dfu-border rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center gap-3 hover:border-blue-500/80 hover:bg-slate-900/80 transition-all card-3d-tilt group">
+                        <div class="w-12 h-12 rounded-full bg-blue-950/60 flex items-center justify-center text-pink-500 group-hover:scale-110 transition-transform">
+                            <i data-lucide="smartphone" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-white">bKash</span>
+                        <span class="text-[10px] text-blue-400 flex items-center gap-0.5">Visit Portal <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATE VERIFICATION SECTION -->
+        <section id="verification" class="py-16 sm:py-20 border-t border-dfu-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-dfu-card border border-dfu-border rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden space-y-10 sm:space-y-12">
+                    
+                    <!-- Verification Form Header -->
+                    <div class="text-center space-y-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-950/80 border border-blue-800/40 text-blue-400 mb-2 shadow-lg shadow-blue-900/50">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Verify Your Course Completion Certificate</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                            Elevate your academic and professional journey with the prestigious ExcenCo. Institute of Professionals Virtual Platform Certificate Security Code: TF.990 x509.
+                        </p>
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-slate-900 border border-blue-800/40 text-blue-300 font-mono text-xs font-semibold">
+                            Security Code Standard: TF.990 x509
+                        </div>
+                    </div>
+
+                    <!-- Official Certificate Image Preview Card -->
+                    <div class="max-w-3xl mx-auto bg-slate-950/80 border border-blue-500/30 rounded-2xl p-4 sm:p-6 shadow-2xl space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono px-1">
+                            <span class="flex items-center gap-1.5 text-blue-400 font-bold"><i data-lucide="award" class="w-4 h-4"></i> OFFICIAL CERTIFICATE SPECIMEN</span>
+                            <span>SECURE REGISTRY</span>
+                        </div>
+                        <div class="w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-900 shadow-inner group">
+                            <img 
+                                src="https://pbs.twimg.com/media/HScLKTta0AALZjX?format=jpg&name=large" 
+                                alt="Official Certificate Preview" 
+                                class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <form id="verifyForm" onsubmit="event.preventDefault(); verifyCode();" class="max-w-xl mx-auto space-y-4">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="certificateCode"
+                                placeholder="Enter your certificate code"
+                                class="w-full px-5 py-4 pl-12 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono tracking-widest uppercase text-sm transition-all"
+                                required
+                            >
+                            <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-4"></i>
+                        </div>
+                        <button
+                            type="button"
+                            onclick="verifyCode()"
+                            class="w-full py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.01] min-h-[48px]"
+                        >
+                            Verify
+                        </button>
+                    </form>
+
+                    <!-- Verification Output Box -->
+                    <div id="result" class="hidden transition-all duration-300"></div>
+
+                    <!-- Detailed Platform Description -->
+                    <div class="pt-8 border-t border-slate-800 space-y-8 sm:space-y-10 text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        
+                        <div class="space-y-3 bg-slate-950/60 p-5 sm:p-6 rounded-2xl border border-slate-800/80">
+                            <p>
+                                Elevate your academic and professional journey with the prestigious ExcenCo. Institute of Professionals Virtual Platform Certificate Security Code: TF.990 x509. As an independent global leader in education and technology, ExcenCo. takes pride in offering cutting-edge courses through its global virtual platform.
+                            </p>
+                        </div>
+
+                        <!-- Key Features Grid -->
+                        <div class="space-y-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                                <i data-lucide="star" class="w-5 h-5 text-blue-400"></i> Key Features
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/60 space-y-2 hover:border-slate-700 transition-colors">
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Global Recognition</h4>
+                                    <p class="text-xs text-slate-400 leading-relaxed">
+                                        ExcenCo. is renowned for its global excellence. Your certificate from the ExcenCo. platform is a globally verified independent credential.
+                                    </p>
+                                </div>
+                                <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/60 space-y-2 hover:border-slate-700 transition-colors">
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Cutting-Edge Curriculum</h4>
+                                    <p class="text-xs text-slate-400 leading-relaxed">
+                                        The courses are designed to meet the evolving demands of the modern world, combining professional excellence with modern technology.
+                                    </p>
+                                </div>
+                                <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/60 space-y-2 hover:border-slate-700 transition-colors">
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Flexibility &amp; Accessibility</h4>
+                                    <p class="text-xs text-slate-400 leading-relaxed">
+                                        Enjoy the flexibility of studying at your own pace, with 24/7 access to course materials, lectures, and interactive resources.
+                                    </p>
+                                </div>
+                                <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/60 space-y-2 hover:border-slate-700 transition-colors">
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Expert Faculty</h4>
+                                    <p class="text-xs text-slate-400 leading-relaxed">
+                                        Engage with world-class faculty and industry experts who bring a wealth of knowledge and experience to the virtual classroom.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT US SECTION -->
+        <section id="contact" class="py-16 bg-slate-900/60 border-t border-dfu-border text-slate-200">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <!-- Modern Styled Address Cards Block -->
+                <div class="space-y-6">
+                    <h3 class="text-lg sm:text-xl font-extrabold tracking-wider text-white uppercase flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-blue-400"></i> Campus Location
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 max-w-xl mx-auto">
+                        <!-- Address -->
+                        <div class="bg-slate-950/80 border border-slate-800 p-6 rounded-2xl space-y-3 relative overflow-hidden group hover:border-blue-500/50 transition-all text-center">
+                            <div class="flex items-center justify-center gap-3">
+                                <span class="px-3 py-1 bg-blue-950 text-blue-400 rounded-lg text-xs font-mono font-bold border border-blue-800/50">LOCATION</span>
+                                <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Dhaka Hub</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-mono text-slate-200 leading-relaxed">
+                                Road No. 27, Dhaka 1206, Bangladesh
+                            </p>
+                            <a href="https://maps.google.com/?q=Road+No.+27,+Dhaka+1206,+Bangladesh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors pt-2 min-h-[40px]">
+                                View on map <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Service Action Buttons -->
+                <div class="space-y-6 text-center">
+                    <h3 class="text-xl sm:text-2xl font-extrabold tracking-widest text-white uppercase">ONLINE SERVICE</h3>
+                    
+                    <div class="max-w-3xl mx-auto space-y-3 font-semibold">
+                        <!-- Email Us -->
+                        <a href="mailto:excenco.ltd@gmail.com" class="block w-full py-4 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-500 hover:to-blue-500 text-white rounded-xl shadow-lg shadow-indigo-900/30 transition-all text-xs sm:text-sm uppercase tracking-wider hover:scale-[1.01] flex items-center justify-center gap-2 min-h-[48px]">
+                            <i data-lucide="mail" class="w-5 h-5"></i> Email Us: excenco.ltd@gmail.com
+                        </a>
+
+                        <!-- Phone -->
+                        <a href="tel:01843960933" class="block w-full py-4 bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-700 hover:from-teal-500 hover:to-cyan-500 text-white rounded-xl shadow-lg shadow-teal-900/30 transition-all text-xs sm:text-sm uppercase tracking-wider hover:scale-[1.01] flex items-center justify-center gap-2 min-h-[48px]">
+                            <i data-lucide="phone" class="w-5 h-5"></i> Phone: 01843960933
+                        </a>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="#enrollment" class="text-blue-400 hover:underline font-semibold text-sm sm:text-base">
+                            Ask A Question Service
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Modern 3D Social Media Bar -->
+                <div class="pt-8 border-t border-slate-800 text-center space-y-8">
+                    <h3 class="text-lg sm:text-2xl font-bold tracking-tight text-white">
+                        Reach Us At Our Social Media:
+                    </h3>
+
+                    <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-10">
+                        <!-- Facebook 3D -->
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-3d-btn group flex flex-col items-center gap-2">
+                            <div class="social-3d-inner w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-blue-400 border border-blue-400/40 flex items-center justify-center text-white text-2xl sm:text-3xl font-black">
+                                f
+                            </div>
+                            <span class="text-[11px] sm:text-xs font-semibold text-blue-400 group-hover:text-blue-300">facebook</span>
+                        </a>
+
+                        <!-- Instagram 3D -->
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-3d-btn group flex flex-col items-center gap-2">
+                            <div class="social-3d-inner w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 border border-rose-400/40 flex items-center justify-center text-white p-3">
+                                <i data-lucide="instagram" class="w-7 h-7 sm:w-9 sm:h-9"></i>
+                            </div>
+                            <span class="text-[11px] sm:text-xs font-semibold text-blue-400 group-hover:text-blue-300">instagram</span>
+                        </a>
+
+                        <!-- WhatsApp 3D -->
+                        <a href="https://wa.me/8801843960933" target="_blank" rel="noopener noreferrer" class="social-3d-btn group flex flex-col items-center gap-2">
+                            <div class="social-3d-inner w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 border border-emerald-400/40 flex items-center justify-center text-white p-3">
+                                <i data-lucide="phone-call" class="w-6 h-6 sm:w-8 sm:h-8"></i>
+                            </div>
+                            <span class="text-[11px] sm:text-xs font-semibold text-blue-400 group-hover:text-blue-300">whatsapp</span>
+                        </a>
+
+                        <!-- Twitter / X Modern 3D -->
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-3d-btn group flex flex-col items-center gap-2">
+                            <div class="social-3d-inner w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-800 border border-slate-700/80 flex items-center justify-center text-white font-extrabold text-xl sm:text-2xl tracking-tighter">
+                                𝕏
+                            </div>
+                            <span class="text-[11px] sm:text-xs font-semibold text-blue-400 group-hover:text-blue-300">twitter (x)</span>
+                        </a>
+
+                        <!-- LinkedIn 3D -->
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-3d-btn group flex flex-col items-center gap-2">
+                            <div class="social-3d-inner w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-sky-800 via-sky-600 to-sky-400 border border-sky-400/40 flex items-center justify-center text-white font-extrabold text-xl sm:text-2xl">
+                                in
+                            </div>
+                            <span class="text-[11px] sm:text-xs font-semibold text-blue-400 group-hover:text-blue-300">linkedin</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- AI ASSISTANT CHAT WIDGET (Fixed screen bounds and positioning) -->
+    <div id="ai-widget-container" class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Toggle Button -->
+        <button id="ai-toggle-btn" aria-label="Open AI Assistant" class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-2xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 border border-blue-400/40 animate-bounce">
+            <i data-lucide="bot" class="w-7 h-7"></i>
+        </button>
+
+        <!-- Chat Window Box with Responsive Height and Safe Viewport Bounds -->
+        <div id="ai-chat-window" class="hidden absolute bottom-16 right-0 w-[330px] sm:w-[380px] max-h-[calc(100vh-100px)] h-[520px] bg-slate-950 border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-900 via-blue-950 to-slate-950 px-5 py-4 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
+                            ExcenCo. AI Assistant <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        </h3>
+                        <p class="text-[10px] text-slate-400">Ask me anything about courses, login, or fees</p>
+                    </div>
+                </div>
+                <button id="ai-close-btn" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-900 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Messages Container -->
+            <div id="ai-messages" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+                <!-- Initial Bot Greeting -->
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 rounded-lg bg-blue-600/30 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0 mt-0.5">
+                        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 text-slate-200 max-w-[85%] space-y-2">
+                        <p>Hello! I am your AI Assistant for <b>ExcenCo. Institute of Professionals</b>. How can I help you today?</p>
+                        <p class="text-slate-400 text-[11px]">You can click one of the quick questions below or type your own:</p>
+                    </div>
+                </div>
+
+                <!-- Extended Quick Prompts / FAQ Buttons for Stronger SEO & Interaction -->
+                <div class="space-y-1.5 pl-9">
+                    <button onclick="askAI('Are we a part of Imperial College London?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 Are we a part of Imperial College London?
+                    </button>
+                    <button onclick="askAI('How do I enroll in a course?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 How do I enroll in a course?
+                    </button>
+                    <button onclick="askAI('What are the accepted payment methods?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 What are the accepted payment methods?
+                    </button>
+                    <button onclick="askAI('How do I sign in with my Student ID?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 How do I sign in with my Student ID?
+                    </button>
+                    <button onclick="askAI('How can I verify my certificate?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 How can I verify my certificate?
+                    </button>
+                    <button onclick="askAI('What prizes can I win in final course exams?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 What prizes can I win in final course exams?
+                    </button>
+                    <button onclick="askAI('Who is our sponsor company?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 Who is our sponsor company?
+                    </button>
+                    <button onclick="askAI('What was our previous platform name?')" class="block w-full text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-blue-300 transition-colors text-[11px]">
+                        👉 What was our previous platform name?
+                    </button>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="p-3 border-t border-slate-800 bg-slate-950 flex items-center gap-2 flex-shrink-0">
+                <input 
+                    type="text" 
+                    id="ai-user-input" 
+                    placeholder="Type your question here..." 
+                    class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-all"
+                    onkeypress="if(event.key === 'Enter') sendUserMessage()"
+                >
+                <button onclick="sendUserMessage()" aria-label="Send message" class="bg-blue-600 hover:bg-blue-500 text-white p-2.5 rounded-xl transition-all flex items-center justify-center">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COURSE DETAILS MODAL -->
+    <div id="course-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-dfu-card border border-dfu-border rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto space-y-6 animate-glow-pulse">
+            <button id="close-modal" aria-label="Close Modal" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors p-2 min-h-[44px] min-w-[44px] flex items-center justify-center">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div id="modal-content" class="space-y-4">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 text-slate-400 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-6 rounded overflow-hidden flex-shrink-0 bg-slate-900 p-0.5 flex items-center justify-center">
+                        <img 
+                            src="https://pbs.twimg.com/profile_banners/2100650504716222464/1789669241/1500x500" 
+                            alt="ExcenCo. Logo" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <p class="text-white font-bold text-sm">ExcenCo. Institute of Professionals</p>
+                </div>
+                <p class="text-slate-500 leading-relaxed">Under Universal Grants of Institution (TXD:06848-06119), providing global learning and professional development across business, technology, entrepreneurship, and leadership.</p>
+            </div>
+            <div>
+                <p class="text-slate-200 font-semibold mb-3">Navigation</p>
+                <ul class="space-y-2">
+                    <li><a href="#hero" class="hover:text-blue-400 transition-colors py-1 inline-block">Home</a></li>
+                    <li><a href="#catalog" class="hover:text-blue-400 transition-colors py-1 inline-block">Courses</a></li>
+                    <li><a href="#verification" class="hover:text-blue-400 transition-colors py-1 inline-block">Verify Certificate</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors py-1 inline-block">Contact Us</a></li>
+                    <li><a href="#login" class="hover:text-blue-400 transition-colors py-1 inline-block">Sign In</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-slate-200 font-semibold mb-3">Legal & Governance</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-blue-400 transition-colors py-1 inline-block">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors py-1 inline-block">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors py-1 inline-block">Certificate Regulations</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-slate-200 font-semibold mb-3">Contact Information</p>
+                <p class="text-slate-500">excenco.ltd@gmail.com</p>
+                <p class="text-slate-500">Phone: 01843960933</p>
+                <p class="text-slate-500">Road No. 27, Dhaka 1206, Bangladesh</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900 text-center text-slate-600">
+            © 2026 ExcenCo. Institute of Professionals. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ENGINE SCRIPT -->
+    <script>
+        const COURSES = [
+            { id: 1, name: "Freelancing Full Course .Live", duration: "3 Months", price: 12000, category: "Freelancing", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Live mentorship program covering global client acquisition, profile scaling, and contract management.", slug: "freelancing-full-course-live" },
+            { id: 2, name: "Freelancing Full Course (Professional)", duration: "2.5 Months", price: 28500, category: "Freelancing", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Specialized collaborative freelance strategy program designed for high-value technical service providers.", slug: "freelancing-full-course-professional" },
+            { id: 3, name: "Web Development Full Course", duration: "3 Months", price: 30000, category: "Web Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Full stack web development covering modern JavaScript, React, backend APIs, and database design.", slug: "web-development-full-course" },
+            { id: 4, name: "IBM Full Stack Web Development Full Course", duration: "6 Months", price: 20000, category: "Web Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Enterprise-oriented full stack web development curriculum following modern cloud application standards.", slug: "ibm-full-stack-web-development", disclaimer: "Curriculum structured based on enterprise patterns. Associated with IBM Careers global opportunities." },
+            { id: 5, name: "BabsonX: Entrepreneurial Operations: Launching a Startup", duration: "6 Months", price: 20800, category: "Business", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Comprehensive operational roadmap for launching, funding, and scaling new enterprise ventures.", slug: "babsonx-entrepreneurial-operations" },
+            { id: 6, name: "Financial Management Specialization", duration: "6 Months", price: 40000, category: "Business", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Advanced executive financial analysis, capital structures, and strategic investment decision-making.", slug: "financial-management-specialization" },
+            { id: 7, name: "Women Empowerment: A Guide To Self-Legislation", duration: "6 Months", price: 8800, category: "Professional Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Leadership, civic engagement, and self-advocacy strategies for modern professional women.", slug: "women-empowerment-self-legislation" },
+            { id: 8, name: "Nuclear Fuel Management: A Practical Approach Specialization", duration: "6 Months", price: 120000, category: "Other", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Specialized engineering principles for nuclear fuel cycle management, safety, and core physics.", slug: "nuclear-fuel-management-specialization" },
+            { id: 9, name: "Startup With Started Success", duration: "3 Months", price: 45000, category: "Business", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Accelerated incubator program covering business plan validation, seed funding, and product-market fit.", slug: "startup-with-started-success" },
+            { id: 10, name: "Global Master of Public Psychology", duration: "6 Months", price: 110000, category: "Other", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Public mental health strategies, psychological interventions, and community wellness frameworks.", slug: "global-master-of-public-psychology" },
+            { id: 11, name: "Fundamentals of Neuroscience", duration: "6 Months", price: 110000, category: "Other", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Neurobiology foundations, brain mapping, neural signaling, and cognitive computational models.", slug: "fundamentals-of-neuroscience" },
+            { id: 12, name: "Advance Learning In Biotechnologies", duration: "6 Months", price: 110000, category: "Other", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Molecular biology, genetic engineering concepts, bioinformatics, and modern lab innovations.", slug: "advance-learning-in-biotechnologies" },
+            { id: 13, name: "Introduction To Computer & A.I Science", duration: "Not Specified", price: 0, category: "Computer Courses", isFree: true, campusOnly: true, certificateAvailable: true, desc: "Exclusive foundational survey of computer systems, algorithmic logic, and artificial intelligence.", slug: "intro-computer-ai-science" },
+            { id: 14, name: "Advanced App Development", duration: "3 Months", price: 8000, category: "App Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Cross-platform mobile engineering utilizing modern mobile frameworks and state management.", slug: "advanced-app-development" },
+            { id: 15, name: "Motion Graphics & VFX Green Screen", duration: "3 Months", price: 50600, category: "Design & VFX", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Professional video compositing, green screen keying, 3D motion graphics, and visual effects production.", slug: "motion-graphics-vfx-green-screen" },
+            { id: 16, name: "AWS Full A-Z Course", duration: "3 Months", price: 28000, category: "AWS", isFree: false, campusOnly: false, certificateAvailable: true, desc: "End-to-end Amazon Web Services cloud deployment, IAM, Lambda, S3, and infrastructure security.", slug: "aws-full-az-course" },
+            { id: 17, name: "Blockchain Full Course", duration: "3 Months", price: 25000, category: "Blockchain", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Smart contract development, decentralized application architecture, and cryptography fundamentals.", slug: "blockchain-full-course" },
+            { id: 18, name: "Leadership Skills Full Course", duration: "1 Class", price: 7000, category: "Professional Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Intensive executive masterclass on corporate decision making, team communication, and conflict resolution.", slug: "leadership-skills-full-course" },
+            { id: 19, name: "Japanese Anime & Manga Development", duration: "1 Year", price: 110000, category: "Design & VFX", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Comprehensive studio program covering character design, storyboarding, animation, and digital illustration.", slug: "japanese-anime-manga-development" },
+            { id: 20, name: "Operating System Development", duration: "3 Months", price: 80000, category: "Programming", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Low-level system programming, kernel architecture, memory management, and bootloader mechanics.", slug: "operating-system-development" },
+            { id: 21, name: "Google Cloud Computing", duration: "3 Months", price: 30800, category: "Cloud Computing", isFree: false, campusOnly: false, certificateAvailable: true, desc: "GCP cloud infrastructure design, Kubernetes engine, BigQuery analytics, and cloud security management.", slug: "google-cloud-computing" },
+            { id: 22, name: "Data Science Specialist Course", duration: "6 Months", price: 110000, category: "Data Science", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Statistical learning, data visualization, predictive modeling, and machine learning pipelines.", slug: "data-science-specialist-course" },
+            { id: 23, name: "Coder X Game Development (Professional)", duration: "1 Year", price: 100000, category: "Programming", isFree: false, campusOnly: false, certificateAvailable: true, desc: "3D game engine programming, physics simulation, graphics shaders, and multiplayer game networking.", slug: "coder-x-game-development" },
+            { id: 24, name: "Chrome Extension Developer (Professional)", duration: "1 Year", price: 110000, category: "Web Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Advanced browser extensions engineering using WebExtensions APIs, background scripts, and DOM manipulation.", slug: "chrome-extension-developer" },
+            { id: 25, name: "IELTS Crash Course", duration: "6 Months", price: 18000, category: "Professional Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Targeted examination preparation covering Reading, Writing, Listening, and Speaking band improvement.", slug: "ielts-crash-course" },
+            { id: 26, name: "Digital Technologies Learning + Mental Health Development + Puzzle Solving Brain Improvement — 3 in 1 Course For Kids", duration: "3 Months", price: 12000, category: "Other", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Holistic youth program combining introductory computational thinking, cognitive puzzles, and digital wellness.", slug: "3-in-1-kids-course" },
+            { id: 27, name: "Corporate Strategy", duration: "10 Hours", price: 0, category: "Business", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Executive module on industry analysis, competitive positioning, and corporate portfolio management.", slug: "corporate-strategy" },
+            { id: 28, name: "Brand Management: Aligning Business, Brand and Behaviour", duration: "17 Hours", price: 0, category: "Business", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Strategic brand building, customer experience design, and internal brand alignment practices.", slug: "brand-management-aligning-business" },
+            { id: 29, name: "Introduction to Common Law", duration: "23 Hours", price: 0, category: "Other", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Foundational legal principles, judicial precedents, contract concepts, and statutory interpretations.", slug: "intro-common-law" },
+            { id: 30, name: "Managing the Company of the Future", duration: "12 Hours", price: 0, category: "Business", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Modern management models, agile organization, non-traditional leadership, and workplace innovation.", slug: "managing-company-of-the-future" },
+            { id: 31, name: "Foundations of Data Science: K-Means Clustering in Python", duration: "29 Hours", price: 0, category: "Data Science", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Hands-on unsupervised machine learning module exploring cluster analysis using Python data libraries.", slug: "data-science-kmeans-python" },
+            { id: 32, name: "Discover Acting", duration: "12 Hours", price: 0, category: "Other", isFree: true, campusOnly: false, certificateAvailable: true, desc: "Introductory performance study covering voice modulation, stage presence, and dramatic interpretation.", slug: "discover-acting" },
+            { id: 33, name: "Graphics Designing (Professional)", duration: "6 Months", price: 15000, category: "Design & VFX", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Visual design theory, typography, brand visual identity, vector artwork, and digital image editing.", slug: "graphics-designing-professional" },
+            { id: 34, name: "Basic Programming For Anything", duration: "3 Months", price: 21000, category: "Programming", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Language-agnostic programming logic, data structures, variables, control flow, and problem-solving.", slug: "basic-programming-for-anything" },
+            { id: 35, name: "Java Programming", duration: "3 Months", price: 8000, category: "Programming", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Object-oriented programming using Java, JVM fundamentals, exception handling, and collections.", slug: "java-programming" },
+            { id: 36, name: "Python Programming", duration: "3 Months", price: 8000, category: "Programming", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Python scripting, file I/O, automation scripts, object-oriented concepts, and core modules.", slug: "python-programming" },
+            { id: 37, name: "Digital Marketing Professional Mode", duration: "1 Year", price: 35000, category: "Business", isFree: false, campusOnly: false, certificateAvailable: true, desc: "SEO, pay-per-click advertising, social media strategy, email marketing, and web analytics.", slug: "digital-marketing-professional-mode" },
+            { id: 38, name: "Google Web Design", duration: "1 Month", price: 5500, category: "Web Development", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Interactive HTML5 web design, responsive layouts, and digital display ad creation.", slug: "google-web-design" },
+            { id: 39, name: "Office Management Course", duration: "3 Months", price: 8000, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Administrative workflows, document organization, business communication, and office software efficiency.", slug: "office-management-course" },
+            { id: 40, name: "Computer Basic Course", duration: "6 Months", price: 6500, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Fundamental computer operation, operating systems usage, word processing, and internet safety.", slug: "computer-basic-course" },
+            { id: 41, name: "Computer Fundamental Course", duration: "3 Months", price: 6500, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Core computer science concepts, basic hardware understanding, software types, and digital literacy.", slug: "computer-fundamental-course" },
+            { id: 42, name: "Computer Crash Course", duration: "3 Months", price: 6500, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Fast-track training on practical day-to-day computer applications and digital productivity tools.", slug: "computer-crash-course" },
+            { id: 43, name: "Troubleshooting System & Management", duration: "3 Months", price: 18000, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Hardware diagnostics, operating system recovery, network troubleshooting, and IT support practices.", slug: "troubleshooting-system-management" },
+            { id: 44, name: "Video Editing For Content Creator's", duration: "2 Months", price: 21000, category: "Design & VFX", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Digital video editing, timeline management, audio mixing, color grading, and social video formatting.", slug: "video-editing-for-content-creators" },
+            { id: 45, name: "Hardware & Software Learning", duration: "3 Months", price: 22000, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Computer assembly, peripheral configuration, software installation, driver management, and system maintenance.", slug: "hardware-software-learning" },
+            { id: 46, name: "Typing Master", duration: "Per Month", price: 1500, category: "Computer Courses", isFree: false, campusOnly: false, certificateAvailable: true, desc: "Touch typing technique, accuracy enhancement, speed development, and ergonomic typing posture.", slug: "typing-master" }
+        ];
+
+        const CATEGORIES = [
+            "All Courses", "Free Courses", "Paid Courses", "Programming", "Web Development",
+            "App Development", "Freelancing", "Design & VFX", "Cloud Computing", "AWS",
+            "Blockchain", "Data Science", "Business", "Computer Courses", "Professional Development", "Other"
+        ];
+
+        let selectedCategory = "All Courses";
+        let searchQuery = "";
+        let currentSort = "default";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            setTimeout(() => {
+                const loader = document.getElementById('loading-screen');
+                loader.classList.add('opacity-0');
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 600);
+
+            renderCategoryPills();
+            renderCourseCatalog();
+
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                renderCourseCatalog();
+            });
+
+            document.getElementById('sort-select').addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderCourseCatalog();
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            document.getElementById('close-modal').addEventListener('click', () => {
+                document.getElementById('course-modal').classList.add('hidden');
+            });
+
+            // AI Widget Toggles
+            const aiToggleBtn = document.getElementById('ai-toggle-btn');
+            const aiChatWindow = document.getElementById('ai-chat-window');
+            const aiCloseBtn = document.getElementById('ai-close-btn');
+
+            aiToggleBtn.addEventListener('click', () => {
+                aiChatWindow.classList.toggle('hidden');
+                if(!aiChatWindow.classList.contains('hidden')) {
+                    document.getElementById('ai-user-input').focus();
+                }
+            });
+
+            aiCloseBtn.addEventListener('click', () => {
+                aiChatWindow.classList.add('hidden');
+            });
+
+            window.addEventListener('message', function(e) {
+                if (e.data && typeof e.data === 'object' && e.data.height) {
+                    const iframe = document.getElementById('enrollment-iframe');
+                    const container = document.getElementById('formsapp-container');
+                    if (iframe && container) {
+                        const newH = Math.max(e.data.height + 50, 2400) + 'px';
+                        iframe.style.height = newH;
+                        container.style.height = newH;
+                    }
+                }
+            });
+
+            initLoginForm();
+            initThreeJS();
+        });
+
+        // AI Assistant Logic (Strictly Secure, Scrubbed & Extended)
+        function askAI(question) {
+            appendMessage(question, 'user');
+            setTimeout(() => {
+                let reply = getAIResponse(question);
+                appendMessage(reply, 'bot');
+            }, 500);
+        }
+
+        function sendUserMessage() {
+            const input = document.getElementById('ai-user-input');
+            const text = input.value.trim();
+            if(!text) return;
+            input.value = '';
+            appendMessage(text, 'user');
+
+            setTimeout(() => {
+                let reply = getAIResponse(text);
+                appendMessage(reply, 'bot');
+            }, 600);
+        }
+
+        function appendMessage(text, sender) {
+            const container = document.getElementById('ai-messages');
+            const div = document.createElement('div');
+            
+            if(sender === 'user') {
+                div.className = "flex items-start justify-end space-x-2";
+                div.innerHTML = `
+                    <div class="bg-blue-600 rounded-2xl p-3 text-white max-w-[85%] text-xs shadow-md">
+                        <p>${text}</p>
+                    </div>
+                    <div class="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 flex-shrink-0 mt-0.5 font-bold text-[10px]">
+                        You
+                    </div>
+                `;
+            } else {
+                div.className = "flex items-start space-x-2";
+                div.innerHTML = `
+                    <div class="w-7 h-7 rounded-lg bg-blue-600/30 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0 mt-0.5">
+                        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 text-slate-200 max-w-[85%] text-xs shadow-md space-y-1">
+                        <p>${text}</p>
+                    </div>
+                `;
+            }
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function getAIResponse(query) {
+            const q = query.toLowerCase().trim();
+            
+            if(q === 'hi' || q === 'hello' || q === 'hey' || q === 'greetings' || q.startsWith('hi ') || q.startsWith('hello ')) {
+                return "Hello! Welcome to ExcenCo. Institute of Professionals. How can I assist you with our courses, student portal, or enrollment today?";
+            } else if(q.includes('how are you') || q.includes('who are you')) {
+                return "I am your AI Assistant for ExcenCo. Institute of Professionals, here to help answer your questions about courses, payments, login credentials, and global partnerships!";
+            } else if(q.includes('imperial') || q.includes('college london') || q.includes('adelaide') || q.includes('dynamic features')) {
+                return "Yes, we are officially connected! Established in 2026, our platform was previously known as Dynamic Features University of London (UOL). Effective September 18, 2026, we proudly operate under <b>Imperial College London</b> as our mother and parent company, with the <b>University of Adelaide</b> serving as our official institutional sponsor company, ensuring top-tier academic excellence worldwide.";
+            } else if(q.includes('sponsor') || q.includes('sponsor company')) {
+                return "Our official sponsor company is the <b>University of Adelaide</b>, partnering alongside our parent organization, Imperial College London.";
+            } else if(q.includes('previous platform') || q.includes('dynamic features university') || q.includes('uol')) {
+                return "Our platform was previously called Dynamic Features University of London (UOL) before officially transitioning under Imperial College London on September 18, 2026.";
+            } else if(q.includes('prize') || q.includes('reward') || q.includes('win') || q.includes('refund')) {
+                return "In our final course exams, top students win incredible prizes: 1st place receives a customized PC build (up to $4000), 2nd place receives a laptop (up to $2000), 3rd place receives an iPad (up to $1000), 4th-10th places get a full course fee refund, and 11th-20th places receive a half fee refund, alongside official Graduation Certificates!";
+            } else if(q.includes('payment') || q.includes('fee') || q.includes('bKash') || q.includes('visa') || q.includes('paypal') || q.includes('binance')) {
+                return "We accept multiple payment methods including Visa, Mastercard, PayPal, Binance, Bank Transfers, and bKash. You can check the <a href='#payments' class='text-blue-400 underline font-semibold'>Accepted Payment Methods</a> section for direct gateway links.";
+            } else if(q.includes('enroll') || q.includes('register') || q.includes('join')) {
+                return "To enroll in a course, scroll down to our <a href='#enrollment' class='text-blue-400 underline font-semibold'>Course Enrollment Form</a> section on this page and fill out your details directly!";
+            } else if(q.includes('sign in') || q.includes('login') || q.includes('student id') || q.includes('password')) {
+                return "To sign in, please enter your official Student ID and password in the <a href='#login' class='text-blue-400 underline font-semibold'>Student Login Index</a> section above.";
+            } else if(q.includes('certificate') || q.includes('verify') || q.includes('code')) {
+                return "You can check and verify your certificate validity under the <a href='#verification' class='text-blue-400 underline font-semibold'>Verify Certificate</a> section by entering your secure code standard (TF.990 x509).";
+            } else if(q.includes('contact') || q.includes('phone') || q.includes('email') || q.includes('location')) {
+                return "You can reach us at Road No. 27, Dhaka 1206, Bangladesh, email us at <a href='mailto:excenco.ltd@gmail.com' class='text-blue-400 underline font-semibold'>excenco.ltd@gmail.com</a>, or call 01843960933.";
+            } else if(q.includes('course') || q.includes('price') || q.includes('free')) {
+                return "We offer 46 specialized courses ranging from Free Computer Courses to Professional Certificates. Check out our <a href='#catalog' class='text-blue-400 underline font-semibold'>Course Catalog</a> above!";
+            } else {
+                return "That's a great question! For specific assistance, you can email our administrative support at <a href='mailto:excenco.ltd@gmail.com' class='text-blue-400 underline font-semibold'>excenco.ltd@gmail.com</a> or call 01843960933.";
+            }
+        }
+
+        function formatPrice(course) {
+            if (course.isFree) return `<span class="text-emerald-400 font-extrabold">FREE</span>`;
+            return `<span class="text-blue-400 font-bold">৳${course.price.toLocaleString()} BDT</span>`;
+        }
+
+        function renderCategoryPills() {
+            const container = document.getElementById('category-pills');
+            container.innerHTML = '';
+            CATEGORIES.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `px-3.5 py-2 rounded-full text-xs font-semibold transition-all min-h-[38px] ${
+                    selectedCategory === cat 
+                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' 
+                        : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-slate-200 border border-slate-800'
+                }`;
+                btn.textContent = cat;
+                btn.onclick = () => {
+                    selectedCategory = cat;
+                    renderCategoryPills();
+                    renderCourseCatalog();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function renderCourseCatalog() {
+            const grid = document.getElementById('course-grid');
+            const noRes = document.getElementById('no-results');
+            grid.innerHTML = '';
+
+            let filtered = COURSES.filter(course => {
+                if (selectedCategory === "Free Courses" && !course.isFree) return false;
+                if (selectedCategory === "Paid Courses" && course.isFree) return false;
+                if (selectedCategory !== "All Courses" && selectedCategory !== "Free Courses" && selectedCategory !== "Paid Courses") {
+                    if (course.category !== selectedCategory) return false;
+                }
+                if (searchQuery && !course.name.toLowerCase().includes(searchQuery)) return false;
+                return true;
+            });
+
+            if (currentSort === "price-low") filtered.sort((a, b) => a.price - b.price);
+            if (currentSort === "price-high") filtered.sort((a, b) => b.price - a.price);
+            if (currentSort === "free-first") filtered.sort((a, b) => (a.isFree === b.isFree) ? 0 : a.isFree ? -1 : 1);
+
+            if (filtered.length === 0) {
+                noRes.classList.remove('hidden');
+            } else {
+                noRes.classList.add('hidden');
+            }
+
+            filtered.forEach(course => {
+                const card = document.createElement('div');
+                card.className = "bg-dfu-card border border-dfu-border rounded-2xl p-6 flex flex-col justify-between card-3d-tilt relative overflow-hidden group";
+                
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-950 text-blue-300 border border-blue-800/40">
+                                ${course.category}
+                            </span>
+                            ${course.campusOnly ? `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-300 border border-amber-800/40">MEMBERS ONLY</span>` : ''}
+                            ${course.isFree && !course.campusOnly ? `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-300 border border-emerald-800/40">FREE</span>` : ''}
+                        </div>
+
+                        <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                            ${course.name}
+                        </h3>
+
+                        <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                            ${course.desc}
+                        </p>
+
+                        ${course.disclaimer ? `<p class="text-[10px] text-amber-400/80 italic bg-amber-950/20 p-2 rounded border border-amber-900/30">* ${course.disclaimer}</p>` : ''}
+
+                        <div class="space-y-1.5 pt-2 text-xs border-t border-slate-800/80">
+                            <div class="flex justify-between text-slate-400">
+                                <span>Duration:</span>
+                                <span class="text-slate-200 font-medium">${course.duration}</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Tuition Price:</span>
+                                <span class="text-sm font-bold">${formatPrice(course)}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between gap-3">
+                        <button onclick="openCourseModal(${course.id})" class="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex-1 text-center min-h-[40px]">
+                            View Details
+                        </button>
+                        <a href="#enrollment" class="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all flex-1 text-center min-h-[40px] flex items-center justify-center">
+                            Enroll Now
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function openCourseModal(id) {
+            const course = COURSES.find(c => c.id === id);
+            if (!course) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="space-y-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-950 text-blue-300 border border-blue-800/40 inline-block">
+                            ${course.category}
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">${course.name}</h2>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${course.desc}</p>
+                        
+                        ${course.disclaimer ? `<p class="text-xs text-amber-400 bg-amber-950/30 p-3 rounded-lg border border-amber-900/40">* ${course.disclaimer}</p>` : ''}
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs">
+                            <div><p class="text-slate-500 uppercase">Program Duration</p><p class="text-slate-200 font-semibold text-sm">${course.duration}</p></div>
+                            <div><p class="text-slate-500 uppercase">Total Tuition</p><p class="text-sm font-bold">${formatPrice(course)}</p></div>
+                            <div><p class="text-slate-500 uppercase">Eligibility</p><p class="text-slate-200 font-semibold">${course.campusOnly ? 'Members Only' : 'Open Registration'}</p></div>
+                            <div><p class="text-slate-500 uppercase">Certificate Status</p><p class="text-slate-200 font-semibold">Digital Registry Certificate Included</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Comprehensive Summary & Prizes Section -->
+                    <div class="space-y-4 pt-4 border-t border-slate-800 text-xs text-slate-300">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-blue-400"></i> Final Exam Prizes &amp; Program Summary
+                        </h3>
+
+                        <div class="bg-slate-950/80 border border-blue-900/40 rounded-xl p-4 space-y-2">
+                            <p class="font-bold text-blue-300">Final Exam Prizes (for professional programs/courses):</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-300">
+                                <li><b>1st place:</b> A PC built according to your interest (up to $4000) + A Graduation Certificate</li>
+                                <li><b>2nd place:</b> Laptop (up to $2000) + A Graduation Certificate</li>
+                                <li><b>3rd place:</b> iPad (up to $1000) + A Graduation Certificate</li>
+                                <li><b>4th–10th place:</b> Full refund of course fees + A Graduation Certificate</li>
+                                <li><b>11th–20th place:</b> Half refund of course fees + A Graduation Certificate</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">Lifetime Service</span>
+                                <p class="text-[11px] text-slate-400">Continued support or benefits beyond graduation.</p>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">Premium Plans at No Cost</span>
+                                <p class="text-[11px] text-slate-400">Students receive access to premium plans without additional charges.</p>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">Weekly MCQ Exams</span>
+                                <p class="text-[11px] text-slate-400">Multiple-choice exams based on top international brands &amp; marketplaces.</p>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">High Success Rate</span>
+                                <p class="text-[11px] text-slate-400">Claimed success rate possibility of 90%.</p>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">Successful Graduates</span>
+                                <p class="text-[11px] text-slate-400">Each batch sees over 99.5% successful students.</p>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="block font-bold text-white mb-1">International Brand Rating</span>
+                                <p class="text-[11px] text-slate-400">Received a 5.0 rating out of 5.0 from top international brands.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex justify-end gap-3 border-t border-slate-800">
+                        <a href="#enrollment" onclick="document.getElementById('course-modal').classList.add('hidden');" class="px-6 py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 text-xs shadow-md shadow-blue-600/30 min-h-[44px] flex items-center justify-center">
+                            Proceed to Enrollment Form
+                        </a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('course-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function initLoginForm() {
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const studentID = document.getElementById("studentID").value.trim();
+                const password = document.getElementById("password").value.trim();
+                const msgEl = document.getElementById("message");
+                const linkEl = document.getElementById("link");
+                const contLink = document.getElementById("continueLink");
+                const infoEl = document.getElementById("studentInfo");
+
+                const studentDetails = {
+                    "002023-3100": { password: "3100", message: "Welcome Hasanur Rahman Adi💎", fatherName: "Azizur Rahman", motherName: "Bodrunnesa Nahid", nationality: "Bangladesh", courses: "Foundation Program", phone: "01891645407", presentAddress: "Patherghata Nazu Mia Lane 4no  Goli, Kotowali ,Chittagong", permanentAddress: "Same", directorName: "♛ Administrative Officer", dashboard: "https://dynamicfeatures10-stack.github.io/impfoundation/impfoundation.html" },
+                    "002023-8332": { password: "658192", message: "Welcome Tabasum Nahar Mahi💎 (Ref:CAO)", fatherName: "Showkat Akbar Rana", motherName: "Housna Ara Begum", nationality: "Bangladesh", courses: "Freelancing, Programming With A Purpose", phone: "+880-1871034258", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://imperialxbd.carrd.co/" },
+                    "002026-2303": { password: "2303", message: "Welcome Ahanaf Farhan Rahi", fatherName: "X", motherName: "X", nationality: "Bangladesh", courses: "DF X Hammad", phone: "+880-1779625599", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Management", dashboard: "https://dfxhammad.carrd.co/" },
+                    "002024-8908": { password: "374682", message: "Welcome Saloa Ivnat Raiyan", fatherName: "Md Eliaus", motherName: "Nur Akther", nationality: "Bangladesh", courses: "Programming", phone: "01857852828/01533131420", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://imperialxbd.carrd.co/" },
+                    "002025-9900": { password: "UNGoals", message: "Welcome Fahmida Forkan Tushi 🎀", fatherName: "x", motherName: "x", nationality: "Bangladesh", courses: "DF X Hammad", phone: "x", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://dfxhammad.carrd.co/" },
+                    "002025-6171": { password: "Jce@288", message: "Welcome Jobair Chisty 🤡", fatherName: "Jassim Uddin", motherName: "Shahanara Begum", nationality: "Bangladesh", courses: "DF X Hammad", phone: "01764440732", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://dfxhammad.carrd.co/" },
+                    "002025-8124": { password: "082324", message: "Welcome Mobasshera Hoque 🎀", fatherName: "Mohammad Moin Uddin", motherName: "Shahajadi Begum", nationality: "Bangladesh", courses: "DF X Hammad", phone: "01537255684", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://dfxhammad.carrd.co/" },
+                    "002025-1001": { password: "Has9", message: "Welcome Hasnine Mohammed Safir", fatherName: "Mohammed Harun", motherName: "Shamshad Begum", nationality: "Bangladesh", courses: "DF x Hammad", phone: "01609405865", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://dfxhammad.carrd.co/" },
+                    "002025-1098": { password: "1098", message: "Welcome MD.Shafayat Ullah", fatherName: "Abdul Khalek Iqbal", motherName: "Jaheda Iqbal", nationality: "Bangladesh", courses: "DF x Hammad", phone: "01789527742", presentAddress: "Bangladesh", permanentAddress: "Bangladesh", directorName: "♛ Administrative Officer", dashboard: "https://dfxhammad.carrd.co/" }
+                };
+
+                const student = studentDetails[studentID];
+                msgEl.classList.remove("hidden", "bg-emerald-950/80", "border-emerald-500/50", "text-emerald-300", "bg-red-950/80", "border-red-500/50", "text-red-300");
+
+                if (student && student.password === password) {
+                    msgEl.textContent = student.message;
+                    msgEl.classList.add("block", "bg-emerald-950/80", "border", "border-emerald-500/50", "text-emerald-300");
+                    infoEl.classList.remove("hidden");
+                    contLink.href = student.dashboard;
+                    linkEl.classList.remove("hidden");
+
+                    ["fatherName","motherName","nationality","courses","phone","presentAddress","permanentAddress","directorName"].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = student[id];
+                    });
+                } else {
+                    msgEl.textContent = "Invalid Student ID or Password.";
+                    msgEl.classList.add("block", "bg-red-950/80", "border", "border-red-500/50", "text-red-300");
+                    infoEl.classList.add("hidden");
+                    linkEl.classList.add("hidden");
+                }
+            });
+        }
+
+        function verifyCode() {
+            var code = document.getElementById('certificateCode').value.trim();
+            var result = document.getElementById('result');
+            
+            var normalized = code.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+            var digitsOnly = code.replace(/\D/g, '');
+
+            var isSuccess = false;
+            var message = '';
+
+            if (normalized === 'UN2150STP') {
+                message = '✅ This Certificate is Verified To SALOA IVNAT RAIYAN';
+                isSuccess = true;
+            } else if (normalized === '17105H7HPI1') {
+                message = '✅ This Certificate is Verified To Hasnine Mohammed Safir';
+                isSuccess = true;
+            } else if (normalized === '3100-DDX-H09I-A') {
+                message = '✅ This Certificate is Verified To Hasanur Rahman Adi';
+                isSuccess = true;
+            } else if (normalized === '0299121971310') {
+                message = '✅ This Certificate is Verified To Mohammad Riazul Hoque Akib';
+                isSuccess = true;
+            } else if (normalized === '0209121930810') {
+                message = '✅ This Certificate is Verified To Mohammad Riazul Hoque Akib';
+                isSuccess = true;
+            } else if (normalized === 'CERTPL90W3') {
+                message = '✅ This Certificate is Verified To Saloa Ivnat Raiyan';
+                isSuccess = true;
+            } else if (normalized === '72194M8XQW9') {
+                message = '✅ This Certificate is Verified To Mobasshera Hoque';
+                isSuccess = true;
+            } else if (normalized === '15208G9KCU1') {
+                message = '✅ This Certificate is Verified To MD. Shafayat Ullah';
+                isSuccess = true;
+            } else if (normalized === '34025C5HRE5') {
+                message = '✅ This Certificate is Verified To Jobair Chisty';
+                isSuccess = true;
+            } else if (normalized === '61984Z7VDQ0') {
+                message = '✅ This Certificate is Verified To Fahmida Forkan Tushi';
+                isSuccess = true;
+            } else if (digitsOnly.length === 10) {
+                message = '✅ This Certificate Is Verified';
+                isSuccess = true;
+            } else {
+                message = '❌ This Certificate Is Invalid';
+                isSuccess = false;
+            }
+
+            result.classList.remove('hidden');
+
+            if (isSuccess) {
+                result.innerHTML = `
+                    <div class="bg-slate-900 border border-emerald-500/50 rounded-2xl p-5 sm:p-6 text-emerald-400 font-bold text-center text-base sm:text-lg shadow-xl shadow-emerald-950/40 animate-glow-pulse">
+                        ${message}
+                    </div>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="bg-red-950/40 border border-red-500/50 rounded-2xl p-5 sm:p-6 text-red-400 font-bold text-center text-base sm:text-lg shadow-xl">
+                        ${message}
+                    </div>
+                `;
+            }
+        }
+
+        function initThreeJS() {
+            const container = document.getElementById('three-container');
+            if (!container) return;
+            const scene = new THREE.Scene();
+            
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 6;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            const geometry = new THREE.IcosahedronGeometry(1.8, 2);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0x00205B,
+                roughness: 0.3,
+                metalness: 0.8,
+                wireframe: true
+            });
+            const coreMesh = new THREE.Mesh(geometry, material);
+            scene.add(coreMesh);
+
+            const particlesGeo = new THREE.BufferGeometry();
+            const particlesCount = window.innerWidth < 768 ? 100 : 200;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i=0; i<particlesCount*3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 8;
+            }
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMat = new THREE.PointsMaterial({ size: 0.03, color: 0x38BDF8 });
+            const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+            scene.add(particlesMesh);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0x38BDF8, 2);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                coreMesh.rotation.x += 0.003;
+                coreMesh.rotation.y += 0.005;
+                particlesMesh.rotation.y -= 0.001;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                if (!container) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+    </script>
+</body>
+</html>
